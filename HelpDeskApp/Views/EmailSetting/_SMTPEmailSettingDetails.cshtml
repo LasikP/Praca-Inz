@@ -1,0 +1,62 @@
+﻿@model HelpDeskApp.Models.CommonViewModel.SMTPEmailSettingViewModel
+@{
+    ViewData["Title"] = "Ustawienia SMTP Email";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="ItemTranTable" border="1" style=" width:100%;margin:1px auto;">
+            <tr>
+                <th>ID</th>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <th>Nazwa Uzytkownika</th>
+                <td>@Model.UserName</td>
+            </tr>
+            <tr>
+                <th>Haslo</th>
+                <td>@Model.Password</td>
+            </tr>
+            <tr>
+                <th>Host(SMTP)</th>
+                <td>@Model.Host</td>
+            </tr>
+            <tr>
+                <th>Port(SMTP)</th>
+                <td>@Model.Port</td>
+            </tr>
+            <tr>
+                <th>SSL Wlaczony</th>
+                <td>@Model.IsSSL</td>
+            </tr>
+            <tr>
+                <th>Z Emaila</th>
+                <td>@Model.FromEmail</td>
+            </tr>
+            <tr>
+                <th>Od pelnego imienia i nazwiska</th>
+                <td>@Model.FromFullName</td>
+            </tr>
+            <tr>
+                <th>Jest Domyslny</th>
+                <td>@Model.IsDefault</td>
+            </tr>
+            <tr>
+                <th>Data Stworzenia</th>
+                <td>@Model.CreatedDate</td>
+            </tr>
+            <tr>
+                <th>Data Modyfikacji</th>
+                <td>@Model.ModifiedDate</td>
+            </tr>
+            <tr>
+                <th>Stworzony Przez</th>
+                <td>@Model.CreatedBy</td>
+            </tr>
+            <tr>
+                <th>Zmodyfikowany Przez</th>
+                <td>@Model.ModifiedBy</td>
+        </table>
+    </div>
+</div>

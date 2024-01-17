@@ -1,0 +1,21 @@
+@model HelpDeskApp.Models.AttachmentFileViewModel.AttachmentFileCRUDViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="ItemTranTable">
+            <tr><th>Id</th><td>@Model.Id</td></tr>
+            <tr><th>Id zlecenia</th><td>@Model.ComplaintId</td></tr>
+            <tr><th>Typ pliku</th><td>@Model.ContentType</td></tr>
+            <tr><th>Nazwa pliku</th><td>@Model.FileName</td></tr>
+            <tr><th>Wielkosc</th><td>@Model.Length</td></tr>
+            <tr><th>Scie¿ka pliku</th><td>@Model.FilePath</td></tr>
+            <tr><th>Usuniêty</th><td>@Model.IsDeleted</td></tr>
+            <tr><th>Admin</th><td>@Model.IsAdmin</td></tr>
+            <tr><th>Data stworzenia</th><td>@Model.CreatedDate</td></tr>
+            <tr><th>Data modyfikacji</th><td>@Model.ModifiedDate</td></tr>
+            <tr><th>Stworzony przez</th><td>@Model.CreatedBy</td></tr>
+            <tr><th>Modyfikowany przez</th><td>@Model.ModifiedBy</td></tr>
+            <tr><th>Anulowany</th><td>@Model.Cancelled</td></tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="wrapper">
+    
+    <div class="panel panel-hash">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-6">
+                    <button class="btn btn-sm btn-danger" onclick="AddEdit(0)">Dodaj</button>
+                </div>
+                <div class="col-md-6 pull-right">
+                    <meta charset="UTF-8">
+                    <h5 class="pull-right"><b>&nbsp;Lista Statusow Zlecen</b></h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body scroll panel-height">
+            <table id="tblComplaintStatus" class="ItemTranTable" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nazwa</th>
+                        <th>Opis</th>
+                        <th>Data Stworzenia</th>
+                        <th>Data Modyfikacji</th>
+                        <th>Stowrzony Przez</th>
+                        <th>Modyfikowany Przez</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <partial name="~/Views/UIComponents/_bootstrapAlert.cshtml" />
+</div>
+
+<partial name="~/Views/UIComponents/_MediumModal.cshtml" />
+
+<style>
+    .panel-heading {
+        padding: 0px 0px 0px 5px;
+    }
+
+    .panel-body {
+        padding: 5px;
+    }
+
+    .h4 {
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+</style>
+
+<script src="~/js/ComplaintStatus/ComplaintStatus_CRUD.js"></script>
+<script src="~/js/ComplaintStatus/ComplaintStatus_Datatable.js"></script>
+

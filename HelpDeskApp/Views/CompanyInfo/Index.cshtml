@@ -1,0 +1,109 @@
+﻿@model HelpDeskApp.Models.CompanyInfoViewModel.CompanyInfoCRUDViewModel
+@{
+    ViewData["Title"] = "Informacje o Firmie";
+}
+
+<div class="wrapper">
+    <div class="panel panel-hash">
+        <div class="panel-heading">
+            <div style="display: inline-block;">
+                <h3 class="pull-right"><b>Informacje o Firmie</b></h3>
+            </div>
+        </div>
+        <div class="panel-body scroll panel-height">
+            <table class="ItemTranTable">
+                <tr>
+                    <th>ID</th>
+                    <td>@Model.Id</td>
+                </tr>
+                <tr>
+                    <th>Nazwa</th>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <th>Logo</th>
+                    <td>
+                        <div class="user-panel mt-2 pb-2 mb-2 d-flex">
+                            <div class="image">
+                                <img src="@Model.CompanyLogoImagePath" class="img-circle elevation-1" alt="User Image">
+                            </div>
+                            <div class="info">
+                                <a href="#" class="d-block" onclick=ViewCompanyLogo('@Model.CompanyLogoImagePath')>
+                                    Zobacz
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Waluta</th>
+                    <td>@Model.Currency</td>
+                </tr>
+                <tr>
+                    <th>Adres</th>
+                    <td>@Model.Address</td>
+                </tr>
+                <tr>
+                    <th>Kraj</th>
+                    <td>@Model.Country</td>
+                </tr>
+                <tr>
+                    <th>Telefon</th>
+                    <td>@Model.Phone</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <th>Fax</th>
+                    <td>@Model.Fax</td>
+                </tr>
+                <tr>
+                    <th>Strona Internetowa</th>
+                    <td>@Model.Website</td>
+                </tr>
+                <tr>
+                    <th>Data Stworzenia</th>
+                    <td>@Model.CreatedDate.ToString("dddd, dd MMMM yyyy HH:mm:ss")</td>
+                </tr>
+                <tr>
+                    <th>Stworzona Przez</th>
+                    <td>@Model.CreatedBy</td>
+                </tr>
+                <tr>
+                    <th>
+                    </th>
+                    <td>
+                        <a class="btn btn-danger btn-sm" asp-action="Edit">Edytuj</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <partial name="~/Views/UIComponents/_bootstrapAlert.cshtml" />
+</div>
+
+<style>
+    .panel-heading {
+        padding: 0px 0px 0px 25px;
+    }
+
+    .panel-body {
+        padding: 0px 20px 0px 20px;
+    }
+
+    .h4 {
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+</style>
+
+<script>
+    var ViewCompanyLogo = function (imageURL) {
+        $('#titleImageViewModal').html("Company Logo ");
+        $("#UserImage").attr("src", imageURL);
+        loadImageViewModal();
+    };
+</script>

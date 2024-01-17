@@ -1,0 +1,130 @@
+﻿@model HelpDeskApp.Models.ReportViewModel.ManageReportViewModel
+
+@{
+    ViewData["Title"] = "Raport przypisanych zleceń do użytkownka";
+}
+
+<div class="wrapper">
+    <meta charset="UTF-8">
+    <div class="col-sm-12" id="printableArea">
+        <div class="panel panel-hash">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h5><b>Raport przypisanych zleceń do danego użytkownika</b></h5>
+                    </div>
+                    <div class="col-sm-3 text-right hidden-print">
+                        <button class="btn btn-info" onclick="printDiv('printableArea')"><span class="fa fa-print"></span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row hidden-print">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Data rozpoczęcia</label>
+                        <input type="date" id="StartDate" class="form-control" placeholder="Select Start Date" required>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Data zakończenia</label>
+                        <input type="date" id="EndDate" class="form-control" placeholder="Select Start Date" required>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label><span></span></label>
+                        <input type="submit" value="Wykonaj"
+                               onclick="AssignedToSummaryReportCustomRange(document.getElementById('StartDate').value,document.getElementById('EndDate').value)"
+                               class="form-control btn btn-danger">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label><span></span></label>
+                        <input type="button" class="form-control btn btn-success" value="Zrestartuj" onclick="ResetAssignedToSummaryReport()" />
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>Wyświetlanie danych w zakresie dat: @ViewBag.StartDate do @ViewBag.EndDate</label>
+                </div>
+            </div>
+
+            <hr />
+            <div class="panel-body scroll panel-height">
+                <table class="ItemTranTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Przypisany Użytkownik</th>
+                            <th>Razem Przypisane</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @{
+                            int SL = 1;
+                            double sumTotalComplaint = 0;
+                            @foreach (var item in Model.AssignToSummaryViewModel)
+                            {
+                                sumTotalComplaint = sumTotalComplaint + item.TotalAssigned;
+                                <tr>
+                                    <td>
+                                        @SL
+                                    </td>
+                                    <td>
+                                        @if (item.ApplicationUserId != null)
+                                        {
+                                            <a href='#' onclick=ViewUserDetailsBy("@item.ApplicationUserId");>@item.UserName</a>
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayFor(modelItem => item.UserName)
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TotalAssigned)
+                                    </td>
+                                </tr>
+                                SL++;
+                            }
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><b>Suma zleceń:</b> @sumTotalComplaint</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <hr />
+                @{
+                    var _TotalAssigned = @Model.AssignToSummaryViewModel.Where(x => x.UserName != "Nieprzypisany Użytkownik").Sum(x => x.TotalAssigned);
+                    var _TotalUnassigned = sumTotalComplaint - _TotalAssigned;
+                }
+                @* <span><b>Suma wszystkich zleceń: </b>@sumTotalComplaint</span><br /> *@
+                @* <span><b>Łączna liczba nieprzypisanych zleceń: </b>@_TotalAssigned</span><br />
+                <span><b>Łączna liczba przypisanych zleceń: </b>@_TotalUnassigned</span> <br /> *@
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .panel-heading {
+        padding: 0px 0px;
+        border-bottom: 0px solid transparent;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+</style>
+
+<script src="~/js/Report.js"></script>
+<script src="~/js/UserManagement/UserManagement_CRUD.js"></script>

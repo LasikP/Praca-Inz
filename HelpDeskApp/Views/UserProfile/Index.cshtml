@@ -1,0 +1,95 @@
+﻿@model HelpDeskApp.Models.UserAccountViewModel.UserProfileCRUDViewModel
+
+@{
+    ViewData["Title"] = "Profil użytkownika";
+}
+
+<div class="wrapper">
+    <div class="panel panel-info">
+        <div class="panel-heading"><h4><b>Profil użytkownika</b></h4></div>
+        <div class="container">
+            <br />
+            <input type="hidden" asp-for="UserProfileId" />
+            <input type="hidden" asp-for="ApplicationUserId" />
+            <div class="col-lg-8">
+                <fieldset>
+                    <table class="ItemTranTable" border="1" style=" width:100%;margin:1px auto;">
+                        <tr>
+                            <th>Zdjecie profilowe</th>
+                            <td>
+                                <div class="user-panel mt-2 pb-2 mb-2 d-flex">
+                                    <div class="image">
+                                        <img src="@Model.ProfilePicturePath" class="img-circle elevation-1" alt="User Image">
+                                    </div>
+                                    <div class="info">
+                                        <a href="#" class="d-block" onclick=ViewUserImage('@Model.ProfilePicturePath')>
+                                            @Model.FirstName @Model.LastName
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Imie</th>
+                            <td>@Model.FirstName</td>
+                        </tr>
+                        <tr>
+                            <th>Nazwisko</th>
+                            <td>@Model.LastName</td>
+                        </tr>
+                        <tr>
+                            <th>Numer Telefonu</th>
+                            <td>@Model.PhoneNumber</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>@Model.Email</td>
+                        </tr>
+                        <tr>
+                            <th>Adres</th>
+                            <td>@Model.Address</td>
+                        </tr>
+                        <tr>
+                            <th>Kraj</th>
+                            <td>@Model.Country</td>
+                        </tr>
+                        <tr>
+                            <th>Data Utworzenia</th>
+                            <td>@Model.CreatedDate</td>
+                        </tr>
+                        <tr>
+                            <th>Data Modyfikacji</th>
+                            <td>@Model.ModifiedDate</td>
+                        </tr>
+                        <tr>
+                            <th>Stworzony Przez</th>
+                            <td>@Model.CreatedBy</td>
+                        </tr>
+                        <tr>
+                            <th>Modyfikowany Przez</th>
+                            <td>@Model.ModifiedBy</td>
+                        </tr>
+                        <tr>
+                            <th>Anulowany</th>
+                            <td>@Model.Cancelled</td>
+                        </tr>
+                    </table>
+                    <br />
+                    <div class="form-group">
+                        <button class="btn btn-success" id="EditUserProfile"
+                                onclick="EditUserProfile(document.getElementById('UserProfileId').value)">
+                            Edytuj Profil Użytkownika
+                        </button>
+                        <button class="btn btn-danger" id="ResetPassword" onclick="ResetPassword()">Zrestartuj Hasło</button>
+                    </div>
+                </fieldset>
+            </div>
+            <br /><br />
+            <div class="col-sm-10">
+                <partial name="~/Views/UIComponents/_bootstrapAlert.cshtml" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/UserProfile/UserProfile_CRUD.js"></script>

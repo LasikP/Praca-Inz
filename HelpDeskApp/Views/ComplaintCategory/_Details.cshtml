@@ -1,0 +1,16 @@
+@model HelpDeskApp.Models.ComplaintCategoryViewModel.ComplaintCategoryCRUDViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="ItemTranTable">
+            <tr><th>Id</th><td>@Model.Id</td></tr>
+            <tr><th>Nazwa</th><td>@Model.Name</td></tr>
+            <tr><th>Opis</th><td>@Model.Description</td></tr>
+            <tr><th>Data Stworzenia</th><td>@Model.CreatedDate</td></tr>
+            <tr><th>Data Modyfikacji</th><td>@Model.ModifiedDate</td></tr>
+            <tr><th>Stworzony Przez</th><td>@Model.CreatedBy</td></tr>
+            <tr><th>Modyfikowany Przez</th><td>@Model.ModifiedBy</td></tr>
+            <tr><th>Anulowany</th><td>@Model.Cancelled</td></tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="wrapper">
+    <div class="panel panel-hash">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6 pull-right">
+                    <h5 class="pull-right"><b>&nbsp;Lista powiadomien</b></h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body scroll panel-height">
+            <table id="tblNotification" class="ItemTranTable" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Id Zgloszenia</th>
+                        <th>Tytul Zgloszenia</th>
+                        <th>Wiadomosc</th>
+                        <th>Skomentowany Przez</th>
+                        <th>Czas</th>
+                        <th>
+                            <input type="checkbox" id="MarkedAllasRead" value="Pe³na p³atnoœæ"></>
+                            <label for="MarkedAllasRead">Oznacz wszystkie jako przeczytane</label>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <partial name="~/Views/UIComponents/_bootstrapAlert.cshtml" />
+</div>
+
+<partial name="~/Views/UIComponents/_MediumModal.cshtml" />
+
+<style>
+    .panel-heading {
+        padding: 0px 0px 0px 5px;
+    }
+
+    .panel-body {
+        padding: 5px;
+    }
+
+    .h4 {
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+</style>
+
+<script src="~/js/Notification/Notification_CRUD.js"></script>
+<script src="~/js/Notification/Notification_Datatable.js"></script>
+
+<script>
+    $("body").on("click", "#MarkedAllasRead", function () {
+        if ($('#MarkedAllasRead').is(":checked")) {
+            MarkedAllAsRead();
+        }
+    });
+</script>

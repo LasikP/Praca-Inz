@@ -1,0 +1,21 @@
+@model HelpDeskApp.Models.ComplaintViewModel.ComplaintManageViewModel
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel-footer text-right">
+            <button class="btn btn-info" onclick="printDiv('printableArea')"><span class="fa fa-print"></span></button>
+            <a class="btn btn-success" onclick="DownloadComplaintReportPDF('@Model.ComplaintGridViewModel.Id')"><i class="fa fa-download"></i></a>
+            <button class="btn btn-info" onclick="BacktoPreviousPage()">Back</button>
+        </div>
+
+        <partial name="~/Views/DownloadReport/_ComplaintprintableArea.cshtml" />
+    </div>
+</div>
+
+
+<script>
+    var DownloadComplaintReportPDF = function (id) {
+        location.href = "/DownloadReport/DownloadComplaintReportPDF?id=" + id;
+    };
+
+</script>

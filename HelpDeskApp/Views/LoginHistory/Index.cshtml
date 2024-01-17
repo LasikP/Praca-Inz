@@ -1,0 +1,57 @@
+<div class="wrapper">
+    <div class="panel panel-hash">
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6 pull-right">
+                <h5 class="pull-right"><b>Lista historii logowania</b></h5>
+            </div>
+        </div>
+
+        <div class="panel-body scroll panel-height">
+            <table id="tblLoginHistoryInfo" class="ItemTranTable" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nazwa uzytkownika</th>
+                        <th>Czas logowania</th>
+                        <th>Czas wylogowania</th>
+                        <th>Czas trwania (min)</th>
+                        <th>Publiczny adres IP</th>
+                        <th>Szerokosc geograficzna</th>
+                        <th>Dlugosc geograficzna</th>
+                        <th>Przegladarka</th>
+                        <th>system operacyjny</th>
+                        <th>Urzadzenie</th>
+                        <th>Dzialanie</th>
+                        <th>Stan dzia³ania</th>
+
+                        <th>Data utworzenia</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <partial name="~/Views/UIComponents/_bootstrapAlert.cshtml" />
+</div>
+
+<partial name="~/Views/UIComponents/_MediumModal.cshtml" />
+
+<style>
+    .panel-heading {
+        padding: 0px 0px 0px 5px;
+    }
+
+    .panel-body {
+        padding: 5px;
+    }
+
+    .h4 {
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+</style>
+
+<script src="~/js/LoginHistory/LoginHistory_CRUD.js"></script>
+<script src="~/js/LoginHistory/LoginHistory_Datatable.js"></script>
+

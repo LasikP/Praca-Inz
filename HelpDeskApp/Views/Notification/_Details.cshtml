@@ -1,0 +1,19 @@
+@model HelpDeskApp.Models.NotificationViewModel.NotificationGridViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="ItemTranTable">
+            <tr><th>Id</th><td>@Model.Id</td></tr>
+            <tr><th>Id Zgloszenia</th><td>@Model.ComplaintId</td></tr>
+            <tr><th>Tytul Zgloszenia</th><td>@Model.ComplaintTitle</td></tr>
+            <tr><th>Wiadomoœæ</th><td>@Model.Message</td></tr>
+            <tr><th>IsRead</th><td>@Model.IsRead</td></tr>
+            <tr><th>Powiadomienie dla</th><td>@Model.NotificationFor</td></tr>
+            <tr><th>Data utworzenia</th><td>@Model.CreatedDate</td></tr>
+            <tr><th>Data modyfikacji</th><td>@Model.ModifiedDate</td></tr>
+            <tr><th>Utworzone przez</th><td>@Model.CreatedBy</td></tr>
+            <tr><th>Zmodyfikowany przez</th><td>@Model.ModifiedBy</td></tr>
+            <tr><th>Anulowane</th><td>@Model.Cancelled</td></tr>
+        </table>
+    </div>
+</div>

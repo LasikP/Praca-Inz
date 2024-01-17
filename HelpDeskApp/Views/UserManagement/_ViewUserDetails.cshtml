@@ -1,0 +1,70 @@
+﻿@model HelpDeskApp.Models.UserAccountViewModel.UserProfileCRUDViewModel
+
+<div class="row">
+    <table class="CustomBlueTable" border="1" style=" width:100%;margin:1px auto;">
+        <tr>
+            <th>ID</th>
+            <td>@Model.UserProfileId</td>
+        </tr>
+        <tr>
+            <th>Zdjecie Profilu</th>
+            <td>
+                <div class="user-panel mt-2 pb-2 mb-2 d-flex">
+                    <div class="image">
+                        <img src="@Model.ProfilePicturePath" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block" onclick="ViewImage('@Model.ProfilePicturePath', '@Model.FirstName')">
+                            @Model.FirstName @Model.LastName
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>Identyfikator użytkownika aplikacji</th>
+            <td>@Model.ApplicationUserId</td>
+        </tr>
+        <tr>
+            <th>Imię</th>
+            <td>@Model.FirstName</td>
+        </tr>
+        <tr>
+            <th>Nazwisko</th>
+            <td>@Model.LastName</td>
+        </tr>
+        <tr>
+            <th>Numer telefonu</th>
+            <td>@Model.PhoneNumber</td>
+        </tr>
+        <tr>
+            <th>E-mail</th>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <th>Adres</th>
+            <td>@Model.Address</td>
+        </tr>
+        <tr>
+            <th>Kraj</th>
+            <td>@Model.Country</td>
+        </tr>
+
+        <tr>
+            <th>Data utworzenia</th>
+            <td>@Model.CreatedDate</td>
+        </tr>
+        <tr>
+            <th>Data modyfikacji</th>
+            <td>@Model.ModifiedDate</td>
+        </tr>
+        <tr>
+            <th>Utworzony przez</th>
+            <td>@Model.CreatedBy</td>
+        </tr>
+        <tr>
+            <th>Zmodyfikowane przez</th>
+            <td>@Model.ModifiedBy</td>
+        </tr>
+    </table>
+</div>

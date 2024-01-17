@@ -1,0 +1,106 @@
+﻿@model HelpDeskApp.Models.CompanyInfoViewModel.CompanyInfoCRUDViewModel
+@{
+    ViewData["Title"] = "Informacje o Firmie";
+}
+
+<div class="wrapper">
+    <div class="panel panel-hash">
+        <div class="panel-heading">
+            <div style="display: inline-block;">
+                <h3 class="pull-right"><b>Informacje o Firmie</b></h3>
+            </div>
+        </div>
+        <div class="panel-body scroll panel-height">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <input type="hidden" asp-for="@Model.Id" />
+                <input type="hidden" asp-for="@Model.CompanyLogoImagePath" />
+                <input type="hidden" asp-for="@Model.CreatedDate" />
+                <input type="hidden" asp-for="@Model.CreatedBy" />
+                <table class="ItemTranTable">
+                    <tr>
+                        <th>Nazwa</th>
+                        <td>
+                            <input asp-for="Name" class="form-control" autofocus />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Logo</th>
+                        <td>
+                            <input type="file" asp-for="CompanyLogo" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Waluta</th>
+                        <td>
+                            <input asp-for="Currency" class="form-control" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Adres</th>
+                        <td>
+                            <input asp-for="Address" class="form-control" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Kraj</th>
+                        <td>
+                            <input asp-for="Country" class="form-control" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Telefon</th>
+                        <td>
+                            <input asp-for="Phone" class="form-control" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>
+                            <input asp-for="Email" class="form-control" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Fax</th>
+                        <td>
+                            <input asp-for="Fax" class="form-control" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Strona internetowa</th>
+                        <td>
+                            <input asp-for="Website" class="form-control" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            <input type="submit" value="Zaaktualizuj Informację" class="btn btn-danger btn-sm" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <a asp-action="Index">Powrót do informacji </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .panel-heading {
+        padding: 0px 0px 0px 25px;
+    }
+
+    .panel-body {
+        padding: 0px 25px 0px 25px;
+    }
+
+    .h4 {
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+
+    .ItemTranTable td, #ItemTranTable th {
+        padding: 5px;
+    }
+</style>
+
